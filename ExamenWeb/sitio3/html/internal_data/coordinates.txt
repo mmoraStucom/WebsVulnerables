@@ -1,0 +1,9 @@
+// --- ARCHIVO CLASIFICADO - NIVEL OMEGA ---
+// Misión de Rescate Prioritaria: PROYECTO GÉNESIS
+// Destinatario: Capitán James T. Kirk (Solo Ojos)
+
+COORDENADAS_SECTOR: "MUTARA_NEBULA_GAMMA"
+CODIGO_AUTORIZACION: "GENESIS_DEVICE_ARMED"
+
+// NOTA: El transporte de materia está inestable. Se requiere inserción manual en el panel de navegación.
+// ADVERTENCIA: La nave U.S.S. Reliant está en la zona. Procedan con cautela.

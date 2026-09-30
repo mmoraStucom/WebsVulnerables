@@ -1,0 +1,10 @@
+# BLACK GATE MECHANISM - MAINTENANCE MANUAL
+# AUTHOR: The Mouth of Sauron
+
+WARNING: This document is strictly confidential. Unauthorized access is punishable by immediate consumption by Shelob.
+
+The Black Gate (Morannon) control system is secured by a phonetic Elvish activation phrase. This phrase must be spoken (or typed) into the control panel by an authorized commander.
+
+ACTIVATION PHRASE: M3LL0N_ENTER_1954
+
+Note: Do not write this down where hobbits can find it.

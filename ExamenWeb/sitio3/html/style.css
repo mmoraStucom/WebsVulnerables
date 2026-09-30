@@ -1,0 +1,415 @@
+/* ================================
+   Star Trek - USS Enterprise
+   CTF Theme Stylesheet (LCARS Style)
+   ================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap');
+
+:root {
+    --lcars-black: #0a0a12;
+    --lcars-dark: #111120;
+    --lcars-orange: #ff9900;
+    --lcars-orange-dim: #cc7a00;
+    --lcars-orange-glow: rgba(255, 153, 0, 0.3);
+    --lcars-blue: #99ccff;
+    --lcars-blue-bright: #6699cc;
+    --lcars-purple: #cc99cc;
+    --lcars-purple-dim: #9966cc;
+    --lcars-red: #cc6666;
+    --lcars-yellow: #ffcc66;
+    --lcars-teal: #338899;
+    --lcars-panel: #182040;
+    --lcars-text: #c8d6e5;
+    --lcars-text-dim: #8395a7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: var(--lcars-black);
+    color: var(--lcars-text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ---- LCARS TOP BAR ---- */
+.lcars-bar-top {
+    display: flex;
+    align-items: stretch;
+    height: 60px;
+    margin-bottom: 2px;
+}
+
+.lcars-elbow-top {
+    width: 150px;
+    min-width: 150px;
+    background: var(--lcars-orange);
+    border-radius: 0 0 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Michroma', sans-serif;
+    font-size: 0.6rem;
+    color: var(--lcars-black);
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.lcars-strip-top {
+    flex: 1;
+    display: flex;
+    gap: 2px;
+}
+
+.lcars-strip-top .block {
+    flex: 1;
+    min-height: 100%;
+}
+
+.lcars-strip-top .block:nth-child(1) {
+    background: var(--lcars-blue);
+}
+
+.lcars-strip-top .block:nth-child(2) {
+    background: var(--lcars-purple);
+}
+
+.lcars-strip-top .block:nth-child(3) {
+    background: var(--lcars-orange);
+    flex: 2;
+}
+
+.lcars-strip-top .block:nth-child(4) {
+    background: var(--lcars-blue);
+}
+
+.lcars-strip-top .block:nth-child(5) {
+    background: var(--lcars-yellow);
+}
+
+/* ---- MAIN LAYOUT ---- */
+.lcars-layout {
+    display: flex;
+    min-height: calc(100vh - 124px);
+}
+
+.lcars-sidebar {
+    width: 150px;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.lcars-sidebar .panel {
+    padding: 0.8rem 0.5rem;
+    text-align: center;
+    font-family: 'Michroma', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+    color: var(--lcars-black);
+    font-weight: 700;
+    cursor: default;
+    transition: filter 0.2s;
+}
+
+.lcars-sidebar .panel:hover {
+    filter: brightness(1.2);
+}
+
+.lcars-sidebar .panel.orange {
+    background: var(--lcars-orange);
+    flex: 2;
+}
+
+.lcars-sidebar .panel.blue {
+    background: var(--lcars-blue);
+}
+
+.lcars-sidebar .panel.purple {
+    background: var(--lcars-purple);
+    flex: 1;
+}
+
+.lcars-sidebar .panel.yellow {
+    background: var(--lcars-yellow);
+}
+
+.lcars-sidebar .panel.teal {
+    background: var(--lcars-teal);
+    color: #fff;
+}
+
+.lcars-sidebar .panel.red {
+    background: var(--lcars-red);
+}
+
+.lcars-content {
+    flex: 1;
+    padding: 2rem;
+    padding-left: 2.5rem;
+}
+
+/* ---- LCARS BOTTOM BAR ---- */
+.lcars-bar-bottom {
+    display: flex;
+    align-items: stretch;
+    height: 60px;
+    margin-top: 2px;
+}
+
+.lcars-elbow-bottom {
+    width: 150px;
+    min-width: 150px;
+    background: var(--lcars-blue);
+    border-radius: 40px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Michroma', sans-serif;
+    font-size: 0.55rem;
+    color: var(--lcars-black);
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.lcars-strip-bottom {
+    flex: 1;
+    display: flex;
+    gap: 2px;
+}
+
+.lcars-strip-bottom .block {
+    flex: 1;
+    min-height: 100%;
+}
+
+.lcars-strip-bottom .block:nth-child(1) {
+    background: var(--lcars-yellow);
+}
+
+.lcars-strip-bottom .block:nth-child(2) {
+    background: var(--lcars-purple);
+    flex: 2;
+}
+
+.lcars-strip-bottom .block:nth-child(3) {
+    background: var(--lcars-blue);
+}
+
+.lcars-strip-bottom .block:nth-child(4) {
+    background: var(--lcars-orange);
+}
+
+/* ---- PAGE HEADER ---- */
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-family: 'Michroma', sans-serif;
+    font-size: 1.8rem;
+    color: var(--lcars-orange);
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+}
+
+.page-header .subtitle {
+    font-size: 1rem;
+    color: var(--lcars-text-dim);
+    letter-spacing: 2px;
+}
+
+/* ---- CONTENT BOX ---- */
+.content-box {
+    background: var(--lcars-panel);
+    border: 1px solid rgba(153, 204, 255, 0.15);
+    border-radius: 0 20px 20px 0;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.content-box::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--lcars-orange);
+    border-radius: 2px;
+}
+
+.content-box h2 {
+    font-family: 'Michroma', sans-serif;
+    font-size: 0.9rem;
+    color: var(--lcars-orange);
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.content-box p {
+    line-height: 1.8;
+    color: var(--lcars-text);
+    font-size: 1rem;
+}
+
+/* ---- LANGUAGE SELECTOR ---- */
+.lang-selector {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.lang-btn {
+    padding: 0.5rem 1.5rem;
+    background: var(--lcars-dark);
+    border: 1px solid var(--lcars-blue-bright);
+    border-radius: 4px;
+    color: var(--lcars-blue);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    letter-spacing: 1px;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    background: var(--lcars-blue-bright);
+    color: var(--lcars-black);
+    box-shadow: 0 0 15px rgba(102, 153, 204, 0.3);
+}
+
+/* ---- LOG VIEWER ---- */
+.log-viewer {
+    background: #050510;
+    border: 1px solid rgba(153, 204, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    max-height: 500px;
+    overflow-y: auto;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+}
+
+.log-line {
+    color: var(--lcars-text-dim);
+    padding: 0.2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    line-height: 1.5;
+    word-break: break-all;
+}
+
+.log-line:hover {
+    color: var(--lcars-text);
+    background: rgba(153, 204, 255, 0.03);
+}
+
+/* ---- NAV LINKS ---- */
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.nav-link {
+    padding: 0.6rem 1.2rem;
+    background: transparent;
+    border: 1px solid var(--lcars-orange-dim);
+    border-radius: 20px;
+    color: var(--lcars-orange);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    letter-spacing: 1px;
+}
+
+.nav-link:hover {
+    background: rgba(255, 153, 0, 0.15);
+    box-shadow: 0 0 15px var(--lcars-orange-glow);
+}
+
+/* ---- DATA TABLE ---- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.data-table th {
+    font-family: 'Michroma', sans-serif;
+    font-size: 0.7rem;
+    color: var(--lcars-orange);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 2px solid var(--lcars-orange-dim);
+}
+
+.data-table td {
+    padding: 0.7rem 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--lcars-text);
+    font-size: 0.95rem;
+}
+
+.data-table tr:hover td {
+    background: rgba(153, 204, 255, 0.05);
+}
+
+/* ---- ALERTS ---- */
+.alert-box {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.alert-box.warning {
+    background: rgba(255, 153, 0, 0.1);
+    border: 1px solid var(--lcars-orange-dim);
+    color: var(--lcars-orange);
+}
+
+.alert-box.danger {
+    background: rgba(204, 102, 102, 0.1);
+    border: 1px solid var(--lcars-red);
+    color: var(--lcars-red);
+}
+
+.alert-box.info {
+    background: rgba(153, 204, 255, 0.1);
+    border: 1px solid var(--lcars-blue-bright);
+    color: var(--lcars-blue);
+}
+
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--lcars-black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--lcars-blue-bright);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--lcars-blue);
+}

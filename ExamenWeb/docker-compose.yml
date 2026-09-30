@@ -1,0 +1,90 @@
+version: '3.8'
+
+services:
+  # --- EXAMEN WEB 1 (Puerto 54340) ---
+  db1:
+    image: mysql:8.0
+    container_name: mysql_examen_1
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass_examen1
+      MYSQL_DATABASE: db_sitio1
+    volumes:
+      - ./sitio1/db_data:/var/lib/mysql
+
+  web1:
+    build: .
+    container_name: web_examen_1
+    ports:
+      - "54340:80"
+    volumes:
+      - ./sitio1/html:/var/www/html
+    depends_on:
+      - db1
+
+  # --- EXAMEN WEB 2 (Puerto 54350) ---
+  db2:
+    image: mysql:8.0
+    container_name: mysql_examen_2
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass_examen2
+      MYSQL_DATABASE: db_sitio2
+    volumes:
+      - ./sitio2/db_data:/var/lib/mysql
+
+  web2:
+    build: .
+    container_name: web_examen_2
+    ports:
+      - "54350:80"
+    volumes:
+      - ./sitio2/html:/var/www/html
+    depends_on:
+      - db2
+
+  # --- EXAMEN WEB 3 (Puerto 54360) ---
+  db3:
+    image: mysql:8.0
+    container_name: mysql_examen_3
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass_examen3
+      MYSQL_DATABASE: db_sitio3
+    volumes:
+      - ./sitio3/db_data:/var/lib/mysql
+
+  web3:
+    build: .
+    container_name: web_examen_3
+    ports:
+      - "54360:80"
+    volumes:
+      - ./sitio3/html:/var/www/html
+    depends_on:
+      - db3
+
+  # --- EXAMEN WEB 4 (Puerto 54370) ---
+  db4:
+    image: mysql:8.0
+    container_name: mysql_examen_4
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass_examen4
+      MYSQL_DATABASE: db_sitio4
+    volumes:
+      - ./sitio4/db_data:/var/lib/mysql
+
+  web4:
+    build: .
+    container_name: web_examen_4
+    ports:
+      - "54370:80"
+    volumes:
+      - ./sitio4/html:/var/www/html
+    depends_on:
+      - db4

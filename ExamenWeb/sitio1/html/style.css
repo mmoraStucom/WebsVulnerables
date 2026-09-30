@@ -1,0 +1,717 @@
+/* ================================
+   Star Wars - Death Star Terminal
+   CTF Theme Stylesheet
+   ================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+
+:root {
+    --sw-black: #0a0a0a;
+    --sw-dark: #111113;
+    --sw-green: #00ff41;
+    --sw-green-dim: #00cc33;
+    --sw-green-glow: rgba(0, 255, 65, 0.3);
+    --sw-amber: #ffb300;
+    --sw-amber-dim: #cc8f00;
+    --sw-red: #ff1744;
+    --sw-red-glow: rgba(255, 23, 68, 0.4);
+    --sw-blue: #00b8d4;
+    --sw-gray: #2a2a2e;
+    --sw-gray-light: #3a3a3e;
+    --sw-text: #c0c0c0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Share Tech Mono', monospace;
+    background-color: var(--sw-black);
+    color: var(--sw-green);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Animated starfield background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+        radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 50px 160px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(1px 1px at 160px 120px, #fff, transparent),
+        radial-gradient(1px 1px at 200px 150px, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 250px 20px, #fff, transparent),
+        radial-gradient(1px 1px at 300px 100px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 350px 60px, #fff, transparent),
+        radial-gradient(1px 1px at 400px 140px, rgba(255, 255, 255, 0.6), transparent);
+    background-repeat: repeat;
+    background-size: 450px 200px;
+    animation: stars 120s linear infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes stars {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-200px);
+    }
+}
+
+/* ---- LOGIN PAGE ---- */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.death-star-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, var(--sw-gray-light), var(--sw-dark));
+    border: 2px solid var(--sw-green-dim);
+    position: relative;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 40px var(--sw-green-glow), inset 0 0 30px rgba(0, 0, 0, 0.8);
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.death-star-logo::before {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: var(--sw-gray-light);
+}
+
+.death-star-logo::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--sw-green) 0%, var(--sw-dark) 70%);
+    box-shadow: 0 0 15px var(--sw-green);
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 40px var(--sw-green-glow);
+    }
+
+    50% {
+        box-shadow: 0 0 60px var(--sw-green-glow), 0 0 80px rgba(0, 255, 65, 0.1);
+    }
+}
+
+.login-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--sw-amber);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 20px var(--sw-amber-dim);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.login-subtitle {
+    font-size: 0.9rem;
+    color: var(--sw-text);
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.login-form {
+    background: rgba(17, 17, 19, 0.9);
+    border: 1px solid var(--sw-green-dim);
+    border-radius: 8px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.1), inset 0 0 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--sw-green);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: var(--sw-dark);
+    border: 1px solid var(--sw-gray);
+    border-radius: 4px;
+    color: var(--sw-green);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--sw-green);
+    box-shadow: 0 0 10px var(--sw-green-glow);
+}
+
+.form-group input::placeholder {
+    color: var(--sw-gray-light);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, var(--sw-green-dim), #005500);
+    border: 1px solid var(--sw-green);
+    border-radius: 4px;
+    color: #000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-login:hover {
+    background: linear-gradient(135deg, var(--sw-green), var(--sw-green-dim));
+    box-shadow: 0 0 25px var(--sw-green-glow);
+    transform: translateY(-1px);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.error-message {
+    background: rgba(255, 23, 68, 0.1);
+    border: 1px solid var(--sw-red);
+    border-radius: 4px;
+    padding: 0.8rem;
+    color: var(--sw-red);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* ---- DASHBOARD ---- */
+.dashboard-container {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--sw-green-dim);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: var(--sw-amber);
+    letter-spacing: 3px;
+}
+
+.btn-logout {
+    padding: 0.5rem 1.2rem;
+    background: transparent;
+    border: 1px solid var(--sw-red);
+    border-radius: 4px;
+    color: var(--sw-red);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.btn-logout:hover {
+    background: rgba(255, 23, 68, 0.15);
+    box-shadow: 0 0 15px var(--sw-red-glow);
+}
+
+.welcome-box {
+    background: rgba(17, 17, 19, 0.9);
+    border: 1px solid var(--sw-gray);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.welcome-box h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--sw-green);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.welcome-box p {
+    color: var(--sw-text);
+    line-height: 1.8;
+}
+
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.status-card {
+    background: var(--sw-dark);
+    border: 1px solid var(--sw-gray);
+    border-radius: 6px;
+    padding: 1.2rem;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+.status-card:hover {
+    border-color: var(--sw-green-dim);
+}
+
+.status-card .value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: var(--sw-amber);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.status-card .label {
+    font-size: 0.75rem;
+    color: var(--sw-text);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ---- TERMINAL PAGE ---- */
+.terminal-container {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.terminal-header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    color: var(--sw-amber);
+    letter-spacing: 2px;
+}
+
+.terminal-box {
+    background: rgba(5, 5, 5, 0.95);
+    border: 1px solid var(--sw-green-dim);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0, 255, 65, 0.08);
+}
+
+.terminal-titlebar {
+    background: var(--sw-gray);
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--sw-green-dim);
+}
+
+.terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.terminal-dot.red {
+    background: var(--sw-red);
+}
+
+.terminal-dot.amber {
+    background: var(--sw-amber);
+}
+
+.terminal-dot.green {
+    background: var(--sw-green);
+}
+
+.terminal-titlebar span {
+    font-size: 0.75rem;
+    color: var(--sw-text);
+    margin-left: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.terminal-body {
+    padding: 1.5rem;
+}
+
+.terminal-info {
+    color: var(--sw-green-dim);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    border-left: 2px solid var(--sw-green-dim);
+    padding-left: 1rem;
+}
+
+.terminal-input-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.terminal-input-row input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    background: var(--sw-black);
+    border: 1px solid var(--sw-gray);
+    border-radius: 4px;
+    color: var(--sw-green);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.terminal-input-row input:focus {
+    border-color: var(--sw-green);
+    box-shadow: 0 0 8px var(--sw-green-glow);
+}
+
+.btn-scan {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #003300, #005500);
+    border: 1px solid var(--sw-green);
+    border-radius: 4px;
+    color: var(--sw-green);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.btn-scan:hover {
+    background: linear-gradient(135deg, #005500, #007700);
+    box-shadow: 0 0 20px var(--sw-green-glow);
+}
+
+.terminal-output {
+    background: var(--sw-black);
+    border: 1px solid var(--sw-gray);
+    border-radius: 4px;
+    padding: 1rem;
+    min-height: 150px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.terminal-output pre {
+    color: var(--sw-green);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.terminal-output .prompt {
+    color: var(--sw-amber);
+}
+
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--sw-black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--sw-green-dim);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--sw-green);
+}
+
+/* ---- FOOTER ---- */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--sw-gray-light);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ---- INSTRUCTIONS BUTTON ---- */
+.btn-instructions {
+    margin-top: 1.5rem;
+    padding: 0.7rem 2rem;
+    background: transparent;
+    border: 1px solid var(--sw-amber);
+    border-radius: 4px;
+    color: var(--sw-amber);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-instructions:hover {
+    background: rgba(255, 179, 0, 0.1);
+    box-shadow: 0 0 25px rgba(255, 179, 0, 0.3);
+    transform: translateY(-1px);
+}
+
+.btn-instructions:active {
+    transform: translateY(0);
+}
+
+/* ---- STAR WARS CRAWL MODAL ---- */
+.crawl-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.crawl-modal.active {
+    display: block;
+}
+
+.crawl-close {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 10001;
+    padding: 0.6rem 1.2rem;
+    background: rgba(255, 23, 68, 0.15);
+    border: 1px solid var(--sw-red);
+    border-radius: 4px;
+    color: var(--sw-red);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.crawl-close:hover {
+    background: rgba(255, 23, 68, 0.3);
+    box-shadow: 0 0 20px var(--sw-red-glow);
+}
+
+/* "A long time ago..." intro */
+.crawl-intro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    z-index: 10000;
+}
+
+.crawl-intro p {
+    font-family: 'Share Tech Mono', monospace;
+    color: #00b8d4;
+    font-size: 1.8rem;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Big title logo */
+.crawl-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    transition: opacity 1s ease, transform 3s ease;
+    z-index: 10000;
+}
+
+.crawl-logo h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--sw-amber);
+    text-align: center;
+    letter-spacing: 6px;
+    line-height: 1.3;
+    text-shadow: 0 0 30px rgba(255, 179, 0, 0.5);
+}
+
+/* Crawl container */
+.crawl-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+    perspective: 400px;
+    overflow: hidden;
+}
+
+.crawl-perspective {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) rotateX(25deg);
+    transform-origin: 50% 100%;
+    width: 80%;
+    max-width: 600px;
+    height: 100%;
+    overflow: visible;
+}
+
+.crawl-content {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.crawl-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: var(--sw-amber);
+    letter-spacing: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.crawl-content h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: var(--sw-amber);
+    letter-spacing: 4px;
+    margin-bottom: 2rem;
+}
+
+.crawl-content p {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.4rem;
+    color: var(--sw-amber);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.crawl-content .crawl-instructions {
+    color: var(--sw-amber-dim);
+    text-align: center;
+    margin: 1rem 0;
+}
+
+/* ---- CRAWL PLAYBACK CONTROLS ---- */
+.crawl-controls {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10001;
+    display: flex;
+    gap: 0.8rem;
+    background: rgba(17, 17, 19, 0.85);
+    border: 1px solid var(--sw-amber-dim);
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(255, 179, 0, 0.15);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.crawl-ctrl-btn {
+    background: none;
+    border: none;
+    color: var(--sw-amber);
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    border-radius: 50%;
+    transition: all 0.25s;
+    line-height: 1;
+}
+
+.crawl-ctrl-btn:hover {
+    background: rgba(255, 179, 0, 0.15);
+    text-shadow: 0 0 12px var(--sw-amber);
+    transform: scale(1.15);
+}
+
+.crawl-ctrl-btn:active {
+    transform: scale(0.95);
+}

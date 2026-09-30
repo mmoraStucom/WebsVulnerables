@@ -1,0 +1,405 @@
+/* ================================
+   Lord of the Rings - Barad-dûr
+   CTF Theme Stylesheet
+   ================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=MedievalSharp&family=Fira+Code:wght@400&display=swap');
+
+:root {
+    --lotr-black: #0d0907;
+    --lotr-dark: #1a1210;
+    --lotr-dark-red: #3d0c02;
+    --lotr-red: #c62828;
+    --lotr-fire: #ff6d00;
+    --lotr-fire-glow: rgba(255, 109, 0, 0.4);
+    --lotr-gold: #ffd54f;
+    --lotr-gold-dim: #c9a825;
+    --lotr-gold-glow: rgba(255, 213, 79, 0.3);
+    --lotr-stone: #3e2723;
+    --lotr-stone-light: #5d4037;
+    --lotr-text: #bcaaa4;
+    --lotr-parchment: #d7ccc8;
+    --lotr-green-dark: #1b5e20;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'MedievalSharp', cursive;
+    background-color: var(--lotr-black);
+    color: var(--lotr-text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Volcanic glow background */
+body::before {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: radial-gradient(ellipse at bottom center, rgba(198, 40, 40, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(1px 1px at 100px 50px, rgba(255, 213, 79, 0.5), transparent),
+        radial-gradient(1px 1px at 200px 150px, rgba(255, 213, 79, 0.3), transparent),
+        radial-gradient(1px 1px at 300px 80px, rgba(255, 213, 79, 0.4), transparent),
+        radial-gradient(1px 1px at 400px 200px, rgba(255, 213, 79, 0.2), transparent),
+        radial-gradient(1px 1px at 500px 120px, rgba(255, 213, 79, 0.5), transparent);
+    background-size: 600px 300px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ---- MAIN CONTAINER ---- */
+.main-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ---- HEADER ---- */
+.page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    border-bottom: 2px solid var(--lotr-stone);
+}
+
+.page-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--lotr-gold);
+    text-shadow: 0 0 20px var(--lotr-gold-glow), 0 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+}
+
+.page-header .subtitle {
+    font-size: 1rem;
+    color: var(--lotr-fire);
+    letter-spacing: 2px;
+}
+
+/* ---- EYE OF SAURON ---- */
+.eye-of-sauron {
+    width: 120px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    border: 3px solid var(--lotr-fire);
+    border-radius: 50%;
+    background: radial-gradient(ellipse, var(--lotr-fire) 0%, var(--lotr-red) 30%, transparent 70%);
+    box-shadow: 0 0 40px var(--lotr-fire-glow), 0 0 80px rgba(198, 40, 40, 0.3);
+    animation: eye-pulse 2s ease-in-out infinite;
+}
+
+.eye-of-sauron::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 40px;
+    background: var(--lotr-black);
+    border-radius: 50%;
+}
+
+@keyframes eye-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 40px var(--lotr-fire-glow);
+    }
+
+    50% {
+        box-shadow: 0 0 60px var(--lotr-fire-glow), 0 0 100px rgba(198, 40, 40, 0.4);
+    }
+}
+
+/* ---- LIBRARY / CONTENT BOX ---- */
+.content-box {
+    background: rgba(26, 18, 16, 0.95);
+    border: 1px solid var(--lotr-stone);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.content-box h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--lotr-gold);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--lotr-stone);
+}
+
+.content-box p,
+.content-box .text-content {
+    color: var(--lotr-parchment);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* ---- LINKS / NAV ---- */
+.scroll-list {
+    list-style: none;
+    padding: 0;
+}
+
+.scroll-list li {
+    margin-bottom: 0.8rem;
+}
+
+.scroll-list a {
+    color: var(--lotr-gold-dim);
+    text-decoration: none;
+    font-size: 1.05rem;
+    transition: color 0.3s, text-shadow 0.3s;
+    display: inline-block;
+    padding: 0.3rem 0;
+}
+
+.scroll-list a:hover {
+    color: var(--lotr-gold);
+    text-shadow: 0 0 10px var(--lotr-gold-glow);
+}
+
+.scroll-list a::before {
+    content: '📜 ';
+}
+
+/* ---- WALL (MESSAGE BOARD) ---- */
+.message-board {
+    margin-top: 1.5rem;
+}
+
+.message {
+    background: var(--lotr-dark);
+    border: 1px solid var(--lotr-stone);
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+    transition: border-color 0.3s;
+}
+
+.message:hover {
+    border-color: var(--lotr-fire);
+}
+
+.message .author {
+    font-family: 'Cinzel', serif;
+    color: var(--lotr-fire);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.message .text {
+    color: var(--lotr-parchment);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.message .time {
+    color: var(--lotr-stone-light);
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+/* ---- FORM ELEMENTS ---- */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: var(--lotr-gold-dim);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: var(--lotr-black);
+    border: 1px solid var(--lotr-stone);
+    border-radius: 4px;
+    color: var(--lotr-parchment);
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--lotr-fire);
+    box-shadow: 0 0 10px rgba(255, 109, 0, 0.2);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.btn-primary {
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, var(--lotr-dark-red), var(--lotr-red));
+    border: 1px solid var(--lotr-fire);
+    border-radius: 4px;
+    color: var(--lotr-gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--lotr-red), #d32f2f);
+    box-shadow: 0 0 20px rgba(198, 40, 40, 0.4);
+    transform: translateY(-1px);
+}
+
+/* ---- UPLOAD AREA ---- */
+.upload-area {
+    border: 2px dashed var(--lotr-stone);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    transition: border-color 0.3s;
+    margin-bottom: 1.5rem;
+}
+
+.upload-area:hover {
+    border-color: var(--lotr-fire);
+}
+
+.upload-area input[type="file"] {
+    margin-top: 1rem;
+}
+
+/* ---- ALERTS / ERRORS ---- */
+.error-message {
+    background: rgba(198, 40, 40, 0.15);
+    border: 1px solid var(--lotr-red);
+    border-radius: 4px;
+    padding: 0.8rem;
+    color: var(--lotr-fire);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.success-message {
+    background: rgba(27, 94, 32, 0.15);
+    border: 1px solid var(--lotr-green-dark);
+    border-radius: 4px;
+    padding: 0.8rem;
+    color: #81c784;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* ---- ADMIN NAV ---- */
+.admin-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--lotr-stone);
+}
+
+.admin-nav h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: var(--lotr-gold);
+}
+
+.btn-back {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--lotr-stone-light);
+    border-radius: 4px;
+    color: var(--lotr-text);
+    font-family: 'MedievalSharp', cursive;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-back:hover {
+    border-color: var(--lotr-gold-dim);
+    color: var(--lotr-gold);
+}
+
+/* ---- CODE/PRE DISPLAY ---- */
+.code-display {
+    background: var(--lotr-black);
+    border: 1px solid var(--lotr-stone);
+    border-radius: 4px;
+    padding: 1rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: var(--lotr-parchment);
+    line-height: 1.6;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* ---- FOOTER ---- */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--lotr-stone-light);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--lotr-black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--lotr-stone);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--lotr-stone-light);
+}
